@@ -25,6 +25,6 @@
     <label for="Body">Body</label>
       <textarea id="body-editor"class="form-control" name= "body" placeholder="Add Body"><?php echo $post['body'];?></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary float-right">Submit</button>
   
     

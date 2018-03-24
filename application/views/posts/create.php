@@ -7,7 +7,7 @@
 </div>
 
 <?php echo validation_errors(); ?>
-<?php echo form_open('posts/create')?>
+<?php echo form_open_multipart('posts/create')?>
   <div class="form-group">
     <label for="Title">Title</label>
       <input type="text" class="form-control" name="title" placeholder="Add Title">
@@ -24,7 +24,14 @@
     <label for="Body">Body</label>
       <textarea id="body-editor" class="form-control" name="body" placeholder="Add Body"></textarea>
   </div>
-  <button type="submit" id="toSubmit" class="btn btn-primary">Submit</button>
+  <label>Image Upload Cover</label>
+   <div class="custom-file">
+    <input type="file" accept=".jpg,.gif,.png" class="custom-file-input " name="userfile" id="validatedCustomFile">
+    <small><b>Experimental:</b> rename filename to img. Use <strong>small</strong> resolution images only.</small>
+    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  </div>
+  <button type="submit" id="toSubmit" class="btn btn-primary float-right">Submit</button>
   
   
   
