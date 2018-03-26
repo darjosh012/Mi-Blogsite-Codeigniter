@@ -42,6 +42,19 @@
               $this->db->where('id', $this->input->post('id'));
               return $this->db->update ('posts', $data); 
         }
+        public function get_posts_by_category($slug) {
+            $this->db->order_by('posts.id', 'DESC');
+            $this->db->join('categories', 'categories.id = posts.category_id');
+            
+            //For getting the slug into id
+            $getQuery = $this->db->query("SELECT * FROM posts WHERE category_id = (Select id from categories where slug = '".$slug."')");
+            $fetchID = $getQuery->row_array();
+            $catID = $fetchID['category_id'];
+            //End get
+            
+            $query = $this->db->get_where('posts', array('category_id' => $catID));
+            return $query->result_array();
+        }
         public function get_categories() {
             $this->db->order_by('name');
             $query = $this->db->get('categories');

@@ -36,9 +36,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>posts">Blog</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>categories">Categories</a>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-link" href="<?php echo base_url(); ?>categories/create">Create Categories</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="text" placeholder="Search">
