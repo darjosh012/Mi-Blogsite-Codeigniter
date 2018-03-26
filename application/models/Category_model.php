@@ -11,13 +11,13 @@
         public function create_category() {
             $data = array (
                 'name' => $this->input->post('name'),
-                'slug' => strtolower(str_replace(' ', '-', $this->input->post('name')))
+                'slug_category' => url_title(strtolower($this->input->post('name')))
             );
             
             return $this->db->insert('categories', $data);
         }
         public function get_category($slug){
-            $query = $this->db->get_where('categories', array ('slug' => $slug));
+            $query = $this->db->get_where('categories', array ('slug_category' => $slug));
             return $query->row();
         }
     }

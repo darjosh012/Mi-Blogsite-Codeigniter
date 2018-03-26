@@ -18,7 +18,7 @@
             $slug = url_title($this->input->post('title'));
             $data = array (
                 'title' => $this->input->post('title'),
-                'slug' => $slug,
+                'slug' =>strtolower($slug),
                 'body' =>$this->input->post('body'),
                 'category_id' => $this->input->post('category_id'),
                 'post_image' => $post_image
@@ -42,12 +42,12 @@
               $this->db->where('id', $this->input->post('id'));
               return $this->db->update ('posts', $data); 
         }
-        public function get_posts_by_category($slug) {
+        public function get_posts_by_category($slug_category) {
             $this->db->order_by('posts.id', 'DESC');
             $this->db->join('categories', 'categories.id = posts.category_id');
             
             //For getting the slug into id
-            $getQuery = $this->db->query("SELECT * FROM posts WHERE category_id = (Select id from categories where slug = '".$slug."')");
+            $getQuery = $this->db->query("SELECT * FROM posts WHERE category_id = (Select id from categories where slug_category = '".$slug_category."')");
             $fetchID = $getQuery->row_array();
             $catID = $fetchID['category_id'];
             //End get

@@ -22,10 +22,10 @@
                 redirect('categories');
             }
         }
-        public function posts($slug) {
-            $data['title'] = $this->category_model->get_category($slug)->name;
+        public function posts($slug_category) {
+            $data['title'] = $this->category_model->get_category($slug_category)->name;
             
-            $data['posts'] = $this->post_model->get_posts_by_category($slug);
+            $data['posts'] = $this->post_model->get_posts_by_category($slug_category);
             
             $this->load->view('templates/header');
             $this->load->view('posts/index', $data);
