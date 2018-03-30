@@ -13,6 +13,25 @@
     </form>
    </div>
 <br><br>
+<hr>
+<h3>Comments</h3>
+<?php if($comments): ?>
+    <?php foreach($comments as $comment) : ?>
+       <div class="alert alert-secondary">
+            <div class="col-md-3">
+            <img class="userimg" src="<?php echo base_url(); ?>/assets/images/usertile.svg">
+            </div>
+            <div class="col-md-9">
+            <h5><strong><?php echo $comment['name']; ?>: </strong><?php echo $comment['body']; ?></h5>
+            </div>
+        </div>
+    <?php endforeach ?>
+<?php else : ?>
+    <div class="alert alert-primary">
+        <p>No comments yet. Be the first to comment!</p>
+    </div>
+<?php endif; ?>
+<hr>
 <h3>Add Comment</h3>
     <?php echo validation_errors(); ?>
     <?php echo form_open('comments/create/'.$post['id']); ?>
